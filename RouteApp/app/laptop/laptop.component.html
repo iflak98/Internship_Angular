@@ -1,0 +1,27 @@
+<p>laptop works!</p>
+
+<div class="container">
+    <div class="row justify-content-md-center">
+      <div class="col col-lg-2">
+        <div *ngFor="let laptop of laptops">
+            <div class="card" style="width: 18rem;">
+              
+            
+            <div class="card-body">
+             <div> <p class="card-text">{{laptop.name | titlecase}}</p></div>
+              <p class="card-text">Rating: {{laptop.rating}}</p>
+            </div>
+            <div class="row">
+          <div class="col">
+              <div><p class="card-text">Cost:{{laptop.cost | currency:'INR'}}</p></div>
+              
+            </div>
+            <div class="col">
+            
+          </div>
+          </div>
+          </div>
+          </div>
+      </div>
+      </div>
+      </div>

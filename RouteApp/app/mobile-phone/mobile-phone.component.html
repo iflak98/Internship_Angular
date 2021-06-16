@@ -1,0 +1,27 @@
+<p>mobile-phone works!</p>
+
+<div class="container">
+    <div class="row justify-content-md-center">
+      <div class="col col-lg-2">
+        <div *ngFor="let mobile of mobiles">
+            <div class="card" style="width: 18rem;">
+              
+            
+            <div class="card-body">
+             <div> <p class="card-text">{{mobile.name | titlecase}}</p></div>
+              <p class="card-text">Rating: {{mobile.rating}}</p>
+            </div>
+            <div class="row">
+          <div class="col">
+              <div><p class="card-text">Cost:{{mobile.cost | currency:'INR'}}</p></div>
+              
+            </div>
+            <div class="col">
+            
+          </div>
+          </div>
+          </div>
+          </div>
+      </div>
+      </div>
+      </div>

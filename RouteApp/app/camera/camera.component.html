@@ -1,0 +1,25 @@
+<p>camera works!</p>
+<div class="container">
+    <div class="row justify-content-md-center">
+      <div class="col col-lg-2">
+        <div *ngFor="let camera of cameras">
+            <div class="card" style="width: 18rem;">
+              
+            
+            <div class="card-body">
+             <div> <p class="card-text">{{camera.name | titlecase}}</p></div>
+              <p class="card-text">Rating: {{camera.rating}}</p>
+            </div>
+            <div class="row">
+          <div class="col">
+              <div><p class="card-text">Cost:{{camera.cost | currency:'INR'}}</p></div>
+              
+            </div>
+            
+          </div>
+          <div ><button class="btn" (click)="addToCart(camera)">Add To Cart</button></div>
+          </div>
+          </div>
+      </div>
+      </div>
+      </div>
