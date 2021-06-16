@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { CartService } from '../cart.service';
+import { ProductDetails } from '../product-details';
+import { ProductService } from '../product.service';
+
 
 @Component({
   selector: 'app-mobile-phone',
@@ -6,19 +10,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./mobile-phone.component.css']
 })
 export class MobilePhoneComponent implements OnInit {
-  cart:any =[];
-  mobiles: any;
-    constructor() { 
-      this.mobiles = [{
-        name: 'Apple', cost:6000, rating:4}
-        ,
-       { name: 'Samsung', cost:15000, rating:3
-      },{name: 'OnePLus', cost:20000, rating:4
-     },{ name: 'Redmi', cost:12000, rating:3
-     }]
-    }
+  __productService:ProductService;
+  constructor(ps:ProductService,private cartService:CartService) {
+    this.__productService=ps;
+   }
 
   ngOnInit(): void {
   }
 
+  getAllMobiles():ProductDetails[]{
+    return this.__productService.getAllMobiles();
+  }
+
+  addToCart(product:ProductDetails){
+    this.cartService.addToCart(product);
+  }
 }

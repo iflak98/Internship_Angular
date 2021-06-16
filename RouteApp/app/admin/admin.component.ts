@@ -1,6 +1,8 @@
 
 import { Component, OnInit } from '@angular/core';
 import { ProductDetails } from '../product-details';
+import { ProductService } from '../product.service';
+
 
 @Component({
   selector: 'app-admin',
@@ -9,7 +11,11 @@ import { ProductDetails } from '../product-details';
 })
 export class AdminComponent implements OnInit {
 
-  constructor() { }
+ 
+  __productService:ProductService
+  constructor(ps:ProductService) { 
+    this.__productService=ps;
+  }
  
   productModel:ProductDetails = new ProductDetails('',0,'');
   
@@ -18,7 +24,8 @@ export class AdminComponent implements OnInit {
 
   onSubmit()
   {
-    console.log("==>on submit "+this.productModel.productName);
+    console.log(this.productModel.productName);
+    this.__productService.addProduct(this.productModel);
   }
 
 }

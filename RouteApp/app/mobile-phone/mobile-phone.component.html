@@ -3,18 +3,18 @@
 <div class="container">
     <div class="row justify-content-md-center">
       <div class="col col-lg-2">
-        <div *ngFor="let mobile of mobiles">
+        <div *ngFor="let item of getAllMobiles()">
             <div class="card" style="width: 18rem;">
               
             
             <div class="card-body">
-             <div> <p class="card-text">{{mobile.name | titlecase}}</p></div>
-              <p class="card-text">Rating: {{mobile.rating}}</p>
+             <div> <p class="card-text">{{item.productName}}</p></div>
+              
             </div>
             <div class="row">
           <div class="col">
-              <div><p class="card-text">Cost:{{mobile.cost | currency:'INR'}}</p></div>
-              
+              <div><p class="card-text">Cost:{{item.productCost | currency:'INR'}}</p></div>
+              <div><button (click)="addToCart(item)">Add To Cart</button></div>
             </div>
             <div class="col">
             

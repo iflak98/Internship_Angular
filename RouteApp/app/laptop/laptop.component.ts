@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { CartService } from '../cart.service';
+import { ProductDetails } from '../product-details';
+import { ProductService } from '../product.service';
+
 
 @Component({
   selector: 'app-laptop',
@@ -6,19 +10,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./laptop.component.css']
 })
 export class LaptopComponent implements OnInit {
-  cart:any =[];
-laptops: any;
-  constructor() { 
-    this.laptops = [{
-      name: 'Apple', cost:6000, rating:4}
-      ,
-     { name: 'Lenovo', cost:15000, rating:3
-    },{name: 'HP', cost:20000, rating:4
-   },{ name: 'Dell', cost:12000, rating:3
-   }]
-  }
+  __productService:ProductService;
+  constructor(ps:ProductService,private cartService:CartService) {
+    this.__productService=ps;
+   }
 
   ngOnInit(): void {
   }
 
+  getAllLaptops():ProductDetails[]{
+    console.log("laptop");
+    return this.__productService.getAllLaptops();
+  }
+
+  addToCart(product:ProductDetails){
+    this.cartService.addToCart(product);
+  }
 }
