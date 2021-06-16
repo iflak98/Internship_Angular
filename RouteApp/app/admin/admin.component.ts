@@ -1,4 +1,5 @@
 
+import { group } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { ProductDetails } from '../product-details';
 import { ProductService } from '../product.service';
@@ -24,8 +25,10 @@ export class AdminComponent implements OnInit {
 
   onSubmit()
   {
+    
     console.log(this.productModel.productName);
     this.__productService.addProduct(this.productModel);
+ 
   }
 
 }
